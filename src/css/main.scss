@@ -1,0 +1,34 @@
+@import "abstracts/bt5start";
+  
+@import "abstracts/function";
+@import "abstracts/mixin";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+@import "base/fonts";
+
+@import "components/button"; 
+@import "components/animate"; 
+@import "components/navigation"; 
+@import "components/homeSlider"; 
+@import "components/navDropdown"; 
+@import "components/mobNavigation"; 
+@import "components/devotedCard"; 
+@import "components/headerInside"; 
+
+@import "layout/footer";
+@import "layout/header";
+@import "layout/homeCardSection";
+@import "layout/devoted";
+@import "layout/homeParters";
+
+@import "pages/contact";
+@import "pages/services";
+@import "pages/teams";
+
+
+
+@import "abstracts/bt5end";
+    

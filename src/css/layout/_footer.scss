@@ -1,0 +1,69 @@
+.footer{
+    background-color: $color-black;
+    padding:4rem 0;
+
+
+    &__box{
+        display: flex;
+
+        @include respondmax(sm){
+            flex-direction: column;
+        }
+
+    }
+
+    &__right{
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        @include respondmax(md){
+            align-items: self-start;
+            flex-direction: column;
+        }
+    }
+
+    &__logo{
+        @include respondmax(md){
+           max-width: 80%;
+           object-fit: cover;
+        }
+    }
+
+    &__textBox{
+        @include respondmax(md){
+            margin-top: 2rem;
+        }
+        p{
+            @include font($dxpr, 1.4rem, $color-white);
+            text-align: right;
+            margin-right: 1rem;
+
+            @include respondmax(md){
+                text-align: left;
+            }
+        }
+    }
+
+    &__linkBox{
+        display: flex;
+        align-items: center;
+        & span{
+            display: flex;
+            height: 5.5rem;
+            width: 5.5rem;
+            align-items: center;
+            justify-content: center;
+            background-color: #8c7156;
+        }
+
+        & a{
+            @include font($dxpr, 1.4rem, $color-white);
+            margin-left: 1rem;
+            &:hover{
+                text-decoration: none;
+                color: $color-primary;
+            }
+        }
+    }
+}

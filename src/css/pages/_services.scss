@@ -1,0 +1,8 @@
+.services {
+  padding: 3rem 0;
+
+  p {
+      margin: 1rem 0;
+    @include font($gtr, 1.4rem, $color-black);
+  }
+}
