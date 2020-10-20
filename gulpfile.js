@@ -17,13 +17,13 @@ var flatten = require('gulp-flatten'); //fondaki klasör altında olan fontları
 var path = {
     build: { //Burada işlemden sonra bitmiş dosyaların nereye koyulacağını gösteriyoruz
         html: 'build/',
-        js: 'build/js/',
-        vendor: 'build/js/vendor/', //src deki vendor klasörünü buildeki vendor klasörüne eklemek için
-        css: 'build/css/main/',
-        images: 'build/img/',
-        fonts: 'build/fonts/',
-        libs: 'build/libs/' //bower ile src klasörüne yüklediğim dosyaları build klasörüne eklemek için
-    },
+        js: '../../../backend/N/nintu/themes/nintu/assets/js/',
+        vendor: '../../../backend/N/nintu/themes/nintu/assets/js/vendor/', //src deki vendor klasörünü buildeki vendor klasörüne eklemek için
+        css: '../../../backend/N/nintu/themes/nintu/assets/css/main/',
+        images: '../../../backend/N/nintu/themes/nintu/assets/img/',
+        fonts: '../../../backend/N/nintu/themes/nintu/assets/fonts/',
+        libs: '../../../backend/N/nintu/themes/nintu/assets/libs/' //bower ile src klasörüne yüklediğim dosyaları build klasörüne eklemek için
+    }, 
     src: { //Burası kaynaklar
         html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         js: 'src/js/main/**/*.js',
@@ -47,19 +47,19 @@ var path = {
 
 gulp.task('html:build', async function () {
     gulp.src(path.src.html)
-        .on('error', function (err) {
-            console.log(err)
-            this.emit('end')
-        })
+    .on('error', function (err) {
+        console.log(err)
+        this.emit('end')
+    })
         .pipe(rigger()) //rigger ile dosyaları birleşdiriyoruz header footer gibi komponentleri import ediyoruz bir nevi
         .pipe(gulp.dest(path.build.html)); //Выплюнем их в папку build
-});
+    });
 
 
 gulp.task('js:build', async function () {
     gulp.src(path.src.js) //burdakileri al derle
 
-        .pipe(concat('all.js'))
+    .pipe(concat('all.js'))
         .pipe(gulp.dest(path.build.js)) //minify etmeden all.js dosyasını ekledik aşağıdaki noSource: true  komutunu silersek buna gerek olmayacak sanırım denemedim ama mantık olarak o kod minify olunmamışını eklemesini engelliyor
         .pipe(minify({
             ext: {
@@ -71,7 +71,7 @@ gulp.task('js:build', async function () {
 
 
         .pipe(gulp.dest(path.build.js)); //derlenmiş dosyayı buraya at
-});
+    });
 
 
 gulp.task('css:build', async function () {
@@ -86,46 +86,46 @@ gulp.task('css:build', async function () {
         .pipe(minifyCSS())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(path.build.css)); //build deki css e atar
-});
+    });
 
 
 gulp.task('image:build', async function () {
     gulp.src(path.src.images) //resimleri seçer
-        .on('error', function (err) {
-            console.log(err)
-            this.emit('end')
-        })
-        .pipe(gulp.dest(path.build.images));
+    .on('error', function (err) {
+        console.log(err)
+        this.emit('end')
+    })
+    .pipe(gulp.dest(path.build.images));
 });
 
 gulp.task('libs:build', async function () {
     gulp.src(path.src.libs)
-        .on('error', function (err) {
-            console.log(err)
-            this.emit('end')
-        })
-        .pipe(gulp.dest(path.build.libs));
+    .on('error', function (err) {
+        console.log(err)
+        this.emit('end')
+    })
+    .pipe(gulp.dest(path.build.libs));
 });
 
 
 gulp.task('vendor:build', async function () {
     gulp.src(path.src.vendor)
-        .on('error', function (err) {
-            console.log(err)
-            this.emit('end')
-        })
-        .pipe(gulp.dest(path.build.vendor));
+    .on('error', function (err) {
+        console.log(err)
+        this.emit('end')
+    })
+    .pipe(gulp.dest(path.build.vendor));
 });
 
 
 gulp.task('fonts:build', async function () {
     gulp.src(path.src.fonts)
-        .on('error', function (err) {
-            console.log(err)
-            this.emit('end')
-        })
-        .pipe(flatten())
-        .pipe(gulp.dest(path.build.fonts))
+    .on('error', function (err) {
+        console.log(err)
+        this.emit('end')
+    })
+    .pipe(flatten())
+    .pipe(gulp.dest(path.build.fonts))
 });
 
 
@@ -137,17 +137,17 @@ gulp.task('build', gulp.series(
     'image:build',
     'libs:build',
     'vendor:build'
-));
+    ));
 
 
 gulp.task('watch', function () {
     gulp.watch([path.watch.html], gulp.series('html:build')),
-        gulp.watch([path.watch.css], gulp.series('css:build')),
-        gulp.watch([path.watch.js], gulp.series('js:build')),
-        gulp.watch([path.watch.images], gulp.series('image:build')),
-        gulp.watch([path.watch.fonts], gulp.series('fonts:build')),
-        gulp.watch([path.watch.libs], gulp.series('libs:build')),
-        gulp.watch([path.watch.vendor], gulp.series('vendor:build'))
+    gulp.watch([path.watch.css], gulp.series('css:build')),
+    gulp.watch([path.watch.js], gulp.series('js:build')),
+    gulp.watch([path.watch.images], gulp.series('image:build')),
+    gulp.watch([path.watch.fonts], gulp.series('fonts:build')),
+    gulp.watch([path.watch.libs], gulp.series('libs:build')),
+    gulp.watch([path.watch.vendor], gulp.series('vendor:build'))
 });
 
 
