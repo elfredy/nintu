@@ -22,7 +22,11 @@
   }
 
   .nav-link {
+    @include respondmin(xxl){
+      font-size: 1.8rem;
+    }
     @include font($gtr, 1.4rem, $color-white);
+   
     padding: 0 !important;
     position: relative;
    // transition: all 0.3s;

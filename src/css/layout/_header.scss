@@ -26,7 +26,7 @@
 
   &__bottom {
     position: relative;
-    height: calc(100vh - 3.5rem);
+   // height: calc(100vh - 3.5rem);
   }
 
   .insideHeader {
@@ -34,8 +34,8 @@
   }
 
   &__homeSlider {
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: -8rem;
     left: 0;
     width: 100%;
     height: calc(100vh - 3.5rem);
@@ -43,8 +43,8 @@
   }
 
   &__inside {
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: -8rem;
     z-index: 1;
   }
 }
