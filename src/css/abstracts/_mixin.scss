@@ -41,6 +41,9 @@
 	@if $breakpoint == xl {
 		@media (min-width: 1200px) {@content};
 	}
+	@if $breakpoint == xxl {
+		@media (min-width: 1440px) {@content};
+	}
 
 	
 }
@@ -61,6 +64,9 @@
 
 	@if $breakpoint == xl {
 		@media (max-width: 1199px) {@content};
+	}
+	@if $breakpoint == xxl {
+		@media (max-width: 1440px) {@content};
 	}
 }
 

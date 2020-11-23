@@ -1,9 +1,14 @@
+.homeSection{
+  position: relative;
+  top: -10rem;
+}
+
 .homeCardSection {
   position: relative;
 
   .center {
     width: 8rem;
-    height: 90%;
+    height: calc(100% - 8rem);
     position: absolute;
     background-color: $color-white;
     bottom: 0;
@@ -77,7 +82,7 @@
   }
   .topImg {
     position: relative;
-    top: -5rem;
+    top: -6rem;
     z-index: 4;
     @include respondmax(md){
         display: none;
@@ -112,12 +117,18 @@
       text-transform: uppercase;
     }
     p {
+      @include respondmin(xxl){
+        font-size: 1.7rem;
+      }
       @include font($gtr, 1.4rem, $color-black);
 
       max-height: 8.5rem;
       overflow: hidden;
     }
     a {
+      @include respondmin(xxl){
+        font-size: 1.5rem;
+      }
       @include font($gtr, 1.2rem, $color-black);
       transition: all 0.4s;
       position: relative;
@@ -187,6 +198,7 @@
   }
 
   .homeFormBox{
+    left: 8rem;
     @include respondmax(md){
       margin-top: 9rem;
     }

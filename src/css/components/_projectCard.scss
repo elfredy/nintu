@@ -1,0 +1,66 @@
+.projectCard {
+  display: block;
+  position: relative;
+  width: 25rem;
+  height: 25rem;
+  transition: all 0.3s;
+
+  @include respondmax(sm){
+      width: 100%;
+      margin-top: 1rem;
+  }
+
+  &__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-black, 0.4);
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 0.3s;
+  }
+
+  &__titleBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+   
+    z-index: 3;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+    transition: all 0.4s;
+
+    h5 {
+      @include font($dxpr, 2.4rem, $color-white);
+    }
+
+    span {
+      @include font($dxpm, 1.2rem, $color-white);
+      margin-top: 2rem;
+      display: block;
+    }
+  }
+
+  &:hover {
+    .projectCardEffect {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .projectCard__titleBox{
+        transform: translate(-50%, -50%);
+    }
+  }
+}

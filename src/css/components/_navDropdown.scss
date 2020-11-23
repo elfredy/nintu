@@ -3,7 +3,7 @@
 
   &:hover {
     .navDropdown__list {
-      transform:rotate3d(1, 0, 0, 0deg);
+      transform: rotate3d(1, 0, 0, 0deg);
     }
   }
 
@@ -17,7 +17,7 @@
     width: 20rem;
     transform: rotate3d(1, 0, 0, 90deg);
     transition: all 0.4s;
-    box-shadow: 0px 0px 10px rgba($color-black,.1);
+    box-shadow: 0px 0px 10px rgba($color-black, 0.1);
 
     & li {
       padding: 1.2rem 0;
@@ -50,6 +50,9 @@
     }
 
     & a {
+      @include respondmin(xxl) {
+        font-size: 1.7rem;
+      }
       @include font($gtr, 1.4rem, $color-black);
       transition: all 0.4s;
       &:hover {
